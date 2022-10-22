@@ -1,0 +1,116 @@
+Tex Configuration
+
+1. Install MiKTeX (miktex.org/howto/install-miktex)
+2. Create init.el file in ~/.emacs directory.
+3. Add to init.el the following,
+   (setq inhibit-startup-message t)
+   (setq default-directory "E:/Files/Text Documents/")
+   to change the C-x d directory.
+4. Add to init.el the following,
+   (load-theme 'deeper-blue)
+   to permanently change the theme to deeper-blue.
+   
+   Alternatively(M-x package-install zenburn-theme)
+   
+5. Install AUCTeX (M-x list-packages RET)
+6. Install TeX Live (mirror.ctan.org/systems/texlive/tlnet/install-tl.zip)
+7. To compile .tex file including Chinese characters, use the following code,
+   \documentclass[UTF8, fontset=windows]{ctexart}
+
+
+Python Configuration
+
+1. Elpy Installation  
+   Add to init.el the following, incompleted in fact
+	(use-package elpy
+	  :ensure t
+	  :init
+	  (elpy-enable))
+2. Install Python
+3. Install Conda (M-x package-list-packages)
+4. Install Anaconda(https://www.anaconda.com/)
+   In "Anaconda Prompt", enter "conda create --name condaenv" (name of env), then enter "conda env list to" check it.
+   References: https://emacs.stackexchange.com/questions/59979/elpy-configuration-setting-up-a-virtual-environment-and-pip-conflic-with-conda
+   https://www.youtube.com/watch?v=l6jB29zY7Ps&ab_channel=tdhock
+   https://github.com/jorgenschaefer/elpy/issues/1727
+5. Install pyvenv
+   M-x package-install RET pyvenv RET
+6. M-x pyvenv-activate RET <path-to-venv>  (which is condaenv in this case)
+   
+   OR
+   
+   (require 'pyvenv)
+   (pyvenv-activate "E:/Programs/anaconda3/envs/condaenv")
+7. (use-package pyvenv
+  :ensure t
+  :config
+  (pyvenv-mode t)
+  
+Java Configuration
+
+1. Install lsp-java via melpa (M-x package-install [RET] lsp-java [RET])
+   https://github.com/emacs-lsp/lsp-java
+   Add to init.el the following:
+   (require 'lsp-java)
+   (add-hook 'java-mode-hook #'lsp)
+2. Install JAVA jdk version from https://www.oracle.com/java/technologies/downloads/#jdk19-windows
+   Add to init.el the following:
+   (setq lsp-java-java-path "E:/Programs/Java/jdk-19/bin/java.exe")
+3. Install Eclipse jdt language server from https://projects.eclipse.org/projects/eclipse.jdt.ls
+Check this: https://www.youtube.com/watch?v=_Ilw8k_zHT0&ab_channel=oxyscbw
+4. Install "java-snippets package" (M-x list-packages)  
+5. M-x customize-group
+   Then, do this:
+   Add to init.el the following,
+   (setq lsp-java-server-install-dir "E:/Programs/jdt-language-server-1.17.0/")
+   % Change Lsp Java Server Install Dir to Eclipse jadt language server directory, then save.
+6. To compile, check this https://www.youtube.com/watch?v=RKrm9dfcRTw&ab_channel=DeepamSarmah
+   M-x compile -> javac Helloworld.java
+   M-x shell -> java Helloworld
+
+Magit Configuration
+
+1. M-x package-refresh-contents RET
+   M-x package-install RET magit RET
+2. Install Git (https://github.com/git-guides/install-git)
+3. Create Git repository (M-x magit-init)
+4. Set up Git (Open Git Bash, https://zhuanlan.zhihu.com/p/337959303)
+   $ git config --global user.name "Your name here"
+   $ git config --global user.email "your_email@example.com"
+   
+   $ git config --global color.ui true
+   $ git config --global core.editor emacs
+   
+   $ ssh-keygen -t rsa -C "your_email@example.com"
+   
+   $ cd ~/.ssh
+   $ ls
+   
+   $cat id_rsa.pub
+   
+   Go to your github Account Settings
+   Click “SSH Keys” on the left.
+   Click “Add SSH Key” on the right.
+   Add a label (like “My laptop”) and paste the public key into the big text box.
+   In a terminal/shell, type the following to test it:
+   $ ssh -T git@github.com
+   
+5. Change local directory
+   $ cd /e/files/git
+   $ git status
+6. Adding a local repository to GitHub
+   $ git init -b main
+   $ git add . && git commit -m "initial commit"
+   $ git remote add origin https://github.com/kenz29cg/python.git
+7. Right click a folder, select git bash, then:
+   $ clone git@github.com:kenz29cg/python.git
+   will clone the repository.
+8. Right click the subfolder, select git bash, then:
+   $ git add .
+   $ git commit -m"v0.1"
+   $ git push
+9. Using Magit to commit,
+   s (stage all files)
+   cc (initiates a commit). Write the message, then C-c C-c to commit.
+   P u to upload to GitHub.
+   

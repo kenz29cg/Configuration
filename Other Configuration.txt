@@ -1,0 +1,18 @@
+1. Set environmental variables “Path”, for Texlive, Python, etc.
+   Right click "This PC", Properties, Advanced System Settings, Environment Variables.
+   
+Python
+
+1. Install pip
+   cmd -> curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+          python get-pip.py
+2. Upgrading pip on Windows
+   python -m pip install --upgrade pip		  
+3. Set pip Path (under /Python/Scripts)
+
+The above process is done during python installation.
+
+4. Install TensorFlow
+   pip install tensorflow
+5. Install Pytorch (copied from https://pytorch.org/get-started/locally/)
+   pip3 install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu116
