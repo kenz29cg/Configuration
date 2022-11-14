@@ -103,7 +103,7 @@ Magit Configuration
    $ git add . && git commit -m "initial commit"
    $ git remote add origin https://github.com/kenz29cg/python.git
 7. Right click a folder, select git bash, then:
-   $ clone git@github.com:kenz29cg/python.git
+   $ git clone git@github.com:kenz29cg/python.git
    will clone the repository.
 8. Right click the subfolder, select git bash, then:
    $ git add .
@@ -113,4 +113,5 @@ Magit Configuration
    s (stage all files)
    cc (initiates a commit). Write the message, then C-c C-c to commit.
    P u to upload to GitHub.
+10. Change git bash default directory (Right click and select properties.)
    
