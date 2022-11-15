@@ -18,7 +18,7 @@ Tex Configuration
    \documentclass[UTF8, fontset=windows]{ctexart}
 
 
-Python Configuration
+Python
 
 1. Elpy Installation  
    Add to init.el the following, incompleted in fact
@@ -46,7 +46,7 @@ Python Configuration
   :config
   (pyvenv-mode t)
   
-Java Configuration
+Java
 
 1. Install lsp-java via melpa (M-x package-install [RET] lsp-java [RET])
    https://github.com/emacs-lsp/lsp-java
@@ -68,13 +68,21 @@ Check this: https://www.youtube.com/watch?v=_Ilw8k_zHT0&ab_channel=oxyscbw
    M-x compile -> javac Helloworld.java
    M-x shell -> java Helloworld
 
-Magit and Git Configuration
+Magit
 
 1. M-x package-refresh-contents RET
    M-x package-install RET magit RET
 2. Install Git (https://github.com/git-guides/install-git)
 3. Create Git repository (M-x magit-init)
-4. Set up Git (Open Git Bash)
+4. Using Magit to commit,
+   s (stage all files)
+   cc (initiates a commit). Write the message, then C-c C-c to commit.
+   P u to upload to GitHub.
+
+
+Git
+
+1. Set up Git (Open Git Bash)
    *** The following are one-time configurations
        $ git config --global user.name "username"
        $ git config --global user.email "email@email.com"
@@ -98,15 +106,15 @@ Magit and Git Configuration
    In a terminal/shell, type the following to test it:
    $ ssh -T git@github.com
    
-5. Change local directory
+2. Change local directory
    $ cd /e/files/git
-6. Adding a local repository to GitHub
+3. Adding a local repository to GitHub
    $ git init -b main
    $ git add . && git commit -m "initial commit"
    $ git remote add origin https://github.com/kenz29cg/python.git
-7. To clone a repository, right click a folder, select git bash, then use the following commands:
-   $ git clone git@github.com:kenz29cg/python.git
-8. To push a commit, right click the subfolder, select git bash, and use these:
+4. To clone a repository, right click a folder, select git bash, then use the following commands:
+   $ git clone git@github.com:kenz29cg/python.git (only needed once, then use $ git pull)
+5. To push a commit, right click the subfolder, select git bash, and use these:
    $ git add file-name.extension
    or
    $ git add . (for new files and files already tracked in current working tree)
@@ -117,12 +125,30 @@ Magit and Git Configuration
 
    Then:
    $ git commit -m "v0.1"
-   $ git push origin main
-9. Using Magit to commit,
+   $ git push
+6. Using Magit to commit,
    s (stage all files)
    cc (initiates a commit). Write the message, then C-c C-c to commit.
    P u to upload to GitHub.
-10. Change git bash default directory (Right click and select properties, change the directory in  "Start in".)
-11. To change remote repository url from https to SSH, do the following:
-    $ git remote set-url <copied url from GitHub -> Code button>
-   
+7. Change git bash default directory (Right click and select properties, change the directory in  "Start in".)
+8. To change remote repository url from https to SSH, do the following:
+   $ git remote set-url <copied url from GitHub -> Code button>
+9. To view all commits to repository, use these:
+   $ git log (all information)
+   or 
+   $ git log -- pretty=oneline | head -n 10 (show the most recent 10 entries)
+   Then [hit q] to return to the command prompt.
+10. Tell git to ignore files using a .gitignore file:
+	$ touch .gitignore
+	Then in the new .gitignore file, add the file names, say:
+	social-security.txt
+	or add the directory names, say:
+	private-directory/
+11. Undo changes (before git add), USE WITH CAUTION SAVE A MODIFIED VERSION OF THE FILE
+	$ git checkout filename.extension
+12. Unstage changes (after git add, before git commit)
+	$ git reset HEAD filename.extension (HEAD refers to the most recently commited version of the file)
+    It is like you never ran git add at all.
+13. Undo commit (after git commit, before git push)
+	$ git reset HEAD~
+	And your file has been unstaged.
