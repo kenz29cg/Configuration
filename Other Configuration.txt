@@ -1,4 +1,4 @@
-1. Set environmental variables “Path”, for Texlive, Python, etc.
+Set environmental variables “Path”, for Texlive, Python, etc.
    Right click "This PC", Properties, Advanced System Settings, Environment Variables.
    
 Python
@@ -16,3 +16,8 @@ The above process is done during python installation.
    pip install tensorflow
 5. Install Pytorch (copied from https://pytorch.org/get-started/locally/)
    pip3 install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu116
+   
+   
+Jupyter Notebook
+
+1. Use Anaconda Prompt to open it. First, change the open directory (Properties -> Start in:), then use command prompt and type "jupyter notebook" each time. 
