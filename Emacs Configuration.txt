@@ -126,29 +126,25 @@ Git
    Then:
    $ git commit -m "v0.1"
    $ git push
-6. Using Magit to commit,
-   s (stage all files)
-   cc (initiates a commit). Write the message, then C-c C-c to commit.
-   P u to upload to GitHub.
-7. Change git bash default directory (Right click and select properties, change the directory in  "Start in".)
-8. To change remote repository url from https to SSH, do the following:
+6. Change git bash default directory (Right click and select properties, change the directory in  "Start in".)
+7. To change remote repository url from https to SSH, do the following:
    $ git remote set-url <copied url from GitHub -> Code button>
-9. To view all commits to repository, use these:
+8. To view all commits to repository, use these:
    $ git log (all information)
    or 
    $ git log -- pretty=oneline | head -n 10 (show the most recent 10 entries)
    Then [hit q] to return to the command prompt.
-10. Tell git to ignore files using a .gitignore file:
+9. Tell git to ignore files using a .gitignore file:
 	$ touch .gitignore
 	Then in the new .gitignore file, add the file names, say:
 	social-security.txt
 	or add the directory names, say:
 	private-directory/
-11. Undo changes (before git add), USE WITH CAUTION SAVE A MODIFIED VERSION OF THE FILE
+10. Undo changes (before git add), USE WITH CAUTION SAVE A MODIFIED VERSION OF THE FILE
 	$ git checkout filename.extension
-12. Unstage changes (after git add, before git commit)
+11. Unstage changes (after git add, before git commit)
 	$ git reset HEAD filename.extension (HEAD refers to the most recently commited version of the file)
     It is like you never ran git add at all.
-13. Undo commit (after git commit, before git push)
+12. Undo commit (after git commit, before git push)
 	$ git reset HEAD~
 	And your file has been unstaged.
